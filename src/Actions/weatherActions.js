@@ -4,7 +4,7 @@ import  { FETCH_WEATHER_REPORT_REQUEST, FETCH_WEATHER_REPORT_SUCCESS, FETCH_WEAT
 
 
 
-const URL= `http://api.openweathermap.org/data/2.5/forecast?q=${constants.LOCATION}&APPID=${constants.APPID}&cnt=${constants.COUNT}`
+const URL= `https://api.openweathermap.org/data/2.5/forecast?q=${constants.LOCATION}&APPID=${constants.APPID}&cnt=${constants.COUNT}`
 
 const fetchWeatherReportRequest = () => {
     return {
