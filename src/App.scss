@@ -1,38 +1,135 @@
+
+$base-color: #3498db !important;
+
+@mixin navigation-icon {
+  cursor: pointer;
+  font-size: 5rem !important;
+  margin-left: 20px;
+  color: $base-color;
+}
+
+@keyframes spinner {
+  0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+       transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
 .App {
   text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .spinner {
+    opacity: 1;
+    position: relative;
+    transition: opacity linear 0.1s;    
+    &::before {
+        animation: 2s linear infinite spinner;
+        border: solid 3px #eee;
+        border-bottom-color: $base-color;
+        border-radius: 50%;
+        content: "";
+        height: 40px;
+        left: 50%;
+        opacity: inherit;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        transform-origin: center;
+        width: 40px;
+        will-change: transform;
+    }
   }
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #61dafb;
+
+.apexcharts-menu-icon {
+  visibility: hidden;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-container {
+  .MuiRadio-colorPrimary.Mui-checked {
+    color: $base-color;
   }
-  to {
-    transform: rotate(360deg);
+
+  border: 1px solid $base-color;
+
+  .unit-selector {
+    margin-top: 25px;
+  }
+
+  .navigation {
+    width: 100%;
+    height: 90px;
+
+    .prev {
+      @include navigation-icon;
+      transform: rotate(180deg);
+      float: left;
+    }
+    
+    .next {
+      @include navigation-icon;
+      float: right;
+    }
+
+  }
+
+  .MuiCard-root {
+    border: 1px solid #EEEEEE;
+  }
+
+  .card-size {
+    width: 28%;
+    margin: 2%;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .bar {
+    fill: $base-color;
+  }
+
+  .bar:hover {
+    fill: $base-color;
+  }
+
+  .axis {
+    font: 10px sans-serif;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: $base-color;
+    shape-rendering: crispEdges;
+  }
+
+  .x.axis path,
+  .y.axis path {
+    display: none;
+  }
+
+  .active {
+    border: 2px solid $base-color;
+  }
+
+  .degrees {
+    width: 0.5em !important;
+  }
+
+
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 }
