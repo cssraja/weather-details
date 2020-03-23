@@ -47,7 +47,7 @@ function App() {
 
 			if(cumm[date]['date'] === date) {
 				let time = (item.dt_txt).split(' ')[1].split(':')[0];
-				time = time > 9 ? `${time} PM` :  `${time} AM`
+				time = time > 9 ? `${parseInt(time, 10)}PM` :  `${parseInt(time, 10)}AM`
 				cumm[date]['time'].push(time);
 				cumm[date]['tempinFahr'].push(Math.ceil(((item.main.temp - 273.15) * 9/5) + 32).toFixed(1));
 				cumm[date]['tempinCelc'].push(Math.ceil(item.main.temp - 273.15).toFixed(1));

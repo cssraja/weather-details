@@ -88,29 +88,7 @@ $base-color: #3498db !important;
     text-align: left;
   }
 
-  .bar {
-    fill: $base-color;
-  }
 
-  .bar:hover {
-    fill: $base-color;
-  }
-
-  .axis {
-    font: 10px sans-serif;
-  }
-
-  .axis path,
-  .axis line {
-    fill: none;
-    stroke: $base-color;
-    shape-rendering: crispEdges;
-  }
-
-  .x.axis path,
-  .y.axis path {
-    display: none;
-  }
 
   .active {
     border: 2px solid $base-color;
@@ -120,8 +98,16 @@ $base-color: #3498db !important;
     width: 0.5em !important;
   }
 
-
-
+  @media only screen and (max-width: 600px) {
+    .MuiTypography-h4 {
+      font-size: 1.6rem;
+    }
+    .MuiTypography-h6 {
+      font-size: 0.9rem;
+    }
+  
+  }
+ 
   /* Safari */
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
