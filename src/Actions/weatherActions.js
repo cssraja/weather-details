@@ -1,43 +1,40 @@
 import axios from 'axios'
 import * as constants from '../Common/constant'
-import  { FETCH_WEATHER_REPORT_REQUEST, FETCH_WEATHER_REPORT_SUCCESS, FETCH_WEATHER_REPORT_FAILURE } from './actionTypes'
-
-
+import  { FETCH_WEATHER_REQUEST, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_FAILURE } from './actionTypes'
 
 const URL= `https://api.openweathermap.org/data/2.5/forecast?q=${constants.LOCATION}&APPID=${constants.APPID}&cnt=${constants.COUNT}`
 
-const fetchWeatherReportRequest = () => {
+const fetchWeatherRequest = () => {
     return {
-        type: FETCH_WEATHER_REPORT_REQUEST
+        type: FETCH_WEATHER_REQUEST
     }
 }
 
-const fetchWeatherReportSuccess = (report) => {
+const fetchWeatherSuccess = (report) => {
     return {
-        type: FETCH_WEATHER_REPORT_SUCCESS,
+        type: FETCH_WEATHER_SUCCESS,
         payload: report
     }
 }
 
-const fetchWeatherReportFailure = (error) => {
+const fetchWeatherFailure = (error) => {
     return {
-        type: FETCH_WEATHER_REPORT_FAILURE,
+        type: FETCH_WEATHER_FAILURE,
         payload: error
     }
 }
 
-
 export const fetchReport = () => {
     return (dispatch) => {
-        dispatch(fetchWeatherReportRequest)
+        dispatch(fetchWeatherRequest)
         axios.get(URL)
             .then(response => {
                 const report = (response.data && response.data.list) ? response.data.list : []
-                dispatch(fetchWeatherReportSuccess(report))
+                dispatch(fetchWeatherSuccess(report))
             })
             .catch(error => {
                 const errMessage = error.message
-                dispatch(fetchWeatherReportFailure(errMessage))
+                dispatch(fetchWeatherFailure(errMessage))
             })
     }
 

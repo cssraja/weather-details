@@ -1,16 +1,17 @@
 import React from 'react'
 import Chart from "react-apexcharts";
+import * as constants from './../Common/constant'
 
 function WeatherChart(chartData) {
     let info = (chartData.chartData) ? chartData.chartData : {}
-    let data = (chartData.unit === 'Fahrenheit') ? info.tempinFahr : info.tempinCelc;
+    let data = (chartData.unit === constants.FAHRENHEIT) ? info.tempinFahr : info.tempinCelc;
 
     let options = {
         chart: {
           type: 'bar'
         },
         series: [{
-          name: 'Temp',
+          name: `Temp in ${chartData.unit[0]}`,
           data: (data) ? data : []
         }],
         xaxis: {

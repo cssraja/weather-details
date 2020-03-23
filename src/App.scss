@@ -1,19 +1,17 @@
-
 $base-color: #3498db !important;
 
 @mixin navigation-icon {
   cursor: pointer;
   font-size: 5rem !important;
-  margin-left: 20px;
   color: $base-color;
 }
 
 @keyframes spinner {
   0% {
-      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
   }
   100% {
-       transform: translate3d(-50%, -50%, 0) rotate(360deg);
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
   }
 }
 
@@ -41,87 +39,64 @@ $base-color: #3498db !important;
         will-change: transform;
     }
   }
-
-}
-
-
-.apexcharts-menu-icon {
-  visibility: hidden;
 }
 
 .main-container {
-  .MuiRadio-colorPrimary.Mui-checked {
-    color: $base-color;
-  }
-
   border: 1px solid $base-color;
-
   .unit-selector {
     margin-top: 25px;
+    .MuiRadio-colorPrimary.Mui-checked {
+      color: $base-color;
+    }
   }
 
   .navigation {
     width: 100%;
     height: 90px;
-
     .prev {
       @include navigation-icon;
       transform: rotate(180deg);
       float: left;
     }
-    
     .next {
       @include navigation-icon;
       float: right;
     }
-
   }
 
-  .MuiCard-root {
-    border: 1px solid #EEEEEE;
-  }
-
-  .card-size {
-    width: 28%;
-    margin: 2%;
-    display: inline-block;
-    text-align: left;
-  }
-
-
-
-  .active {
-    border: 2px solid $base-color;
-  }
-
-  .degrees {
-    width: 0.5em !important;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .MuiTypography-h4 {
-      font-size: 1.6rem;
-    }
-    .MuiTypography-h6 {
-      font-size: 0.9rem;
-    }
+  .weather-info {
     .card-size {
-      width: 29%;
-      margin: 0.4rem;
+      width: 28%;
+      margin: 2%;
       display: inline-block;
       text-align: left;
     }
-  
-  }
- 
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+    .active {
+      border: 2px solid $base-color;
+    }
+    .MuiCard-root {
+      border: 1px solid #EEEEEE;
+      .degrees {
+        width: 0.5em !important;
+      }
+    }
+    .apexcharts-menu-icon {
+      visibility: hidden;
+    }
   }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @media only screen and (max-width: 600px) {
+    .card-size {
+      width: 29%;
+      margin: 0.35rem;
+      display: inline-block;
+      text-align: left;
+      .MuiTypography-h4 {
+        font-size: 1.6rem;
+      }
+      .MuiTypography-h6 {
+        font-size: 0.9rem;
+      }
+    }
   }
 }

@@ -59,7 +59,7 @@ function WeatherInfo( {cardItems, datesList, selectedDate, highlightedDate, unit
      } );
 
     return (
-        <div>
+        <div className="weather-info">
             {listItems}
             {chartData ? <WeatherChart chartData={chartData} unit={unit} /> : ''}
         </div>

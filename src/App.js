@@ -66,8 +66,7 @@ function App() {
 		setDatesList(chunk(Object.keys(cardItem), itemsPerPage)[currentPage - 1])
 		setCardItems(cardItem);
 		setData(weatherDetails);
-		// console.log(Object.keys(cardItem), itemsPerPage)
-	}, [weatherDetails, currentPage, currentPage, itemsPerPage, selDate])
+	}, [weatherDetails, currentPage, itemsPerPage, selDate])
 
 
 
@@ -87,27 +86,26 @@ function App() {
 		<div className="App">
 			{
 				data.loading ? 
-					<div className="spinner"></div> : 
-					<Container maxWidth="md" className="main-container">
-						<WeatherUnitSelector selTempFormat={selTempFormat}/>
-						<div className="navigation">
-							{
-								currentPage > 1 ? 
-									<Forward className="prev" onClick={() => selCurrentPage(-1)} /> : ''
-							}
-
-							{
-								datesList && datesList.length > -1 && currentPage < datesList.length - 1 ? 
-									<Forward className="next" onClick={() => selCurrentPage(1)} /> : ''
-							}
-							
-						</div>
+				<div className="spinner"></div> : 
+				<Container maxWidth="md" className="main-container">
+					<WeatherUnitSelector selTempFormat={selTempFormat}/>
+					<div className="navigation">
 						{
-							datesList && datesList.length > -1 ? 
-								<WeatherInfo cardItems={cardItems} datesList={datesList} selectedDate={selectedDate} highlightedDate={selDate} unit={unit} /> : ''
+							currentPage > 1 ? 
+								<Forward className="prev" onClick={() => selCurrentPage(-1)} /> : ''
+						}
+
+						{
+							datesList && datesList.length > -1 && currentPage < datesList.length - 1 ? 
+								<Forward className="next" onClick={() => selCurrentPage(1)} /> : ''
 						}
 						
-					</Container>
+					</div>
+					{
+						datesList && datesList.length > -1 ? 
+							<WeatherInfo cardItems={cardItems} datesList={datesList} selectedDate={selectedDate} highlightedDate={selDate} unit={unit} /> : ''
+					}
+				</Container>
 			}
 		</div>
 	);
