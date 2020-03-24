@@ -4,7 +4,7 @@
 2.  Material-UI for drawing cards, buttons.
 3. apex-charts for showing 8 bars with temperatures   
 
-For [Live Demo] (https://cssraja.github.io/weather-details/)
+For [Live Demo](https://cssraja.github.io/weather-details/)
 
 
 
